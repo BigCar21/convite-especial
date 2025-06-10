@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Convite ARLS Ivo Ramos de Mattos 2673</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('https://i.pinimg.com/736x/8f/a1/19/8fa11979cd239bf09a13a5aee4672eca.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+      /* Adicionar sombra no texto para melhorar a leitura */
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    h1 {
+      color: #ffcc33;
+      margin-bottom: 10px;
+      text-shadow: 3px 3px 7px rgba(0, 0, 0, 0.9);
+    }
+
+    .mensagem {
+      font-size: 1.2em;
+      margin: 20px auto 40px;
+      max-width: 400px;
+      line-height: 1.5;
+    }
+
+    #contador {
+      font-size: 2.5em;
+      font-weight: bold;
+      margin-top: 20px;
+      text-shadow: 3px 3px 7px rgba(0, 0, 0, 0.9);
+    }
+
+    p {
+      font-size: 1.1em;
+      margin-top: 10px;
+    }
+
+    /* Responsividade */
+    @media (max-width: 480px) {
+      .mensagem {
+        max-width: 90%;
+        font-size: 1em;
+      }
+      #contador {
+        font-size: 2em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Convite Especial</h1>
+
+  <div class="mensagem">
+  A ARLS Ivo Ramos de Mattos 2673 realizará a posse da nova administração 2025/2027.<br />
+  Convidamos você a compartilhar esse momento tão importante para nossa loja.<br /><br />
+  <strong>Data:</strong> 24/06<br />
+  <strong>Horário:</strong><br />
+  Irmãos às 19h<br />
+  Convidados a partir das 20h30
+</div>
+
+  <p>Nosso evento começa em:</p>
+  <div id="contador">00d 00h 00m 00s</div>
+
+  <script>
+    const dataEvento = new Date("2025-06-24T19:00:00").getTime();
+
+    const intervalo = setInterval(() => {
+      const agora = new Date().getTime();
+      const diferenca = dataEvento - agora;
+
+      if (diferenca <= 0) {
+        clearInterval(intervalo);
+        document.getElementById("contador").innerHTML = "O evento já começou!";
+        return;
+      }
+
+      const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+      document.getElementById("contador").innerHTML =
+        `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+    }, 1000);
+  </script>
+</body>
+</html>
